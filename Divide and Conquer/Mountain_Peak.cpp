@@ -1,0 +1,26 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+class Solution {
+public:
+    int peakIndexInMountainArray(vector<int>& arr) 
+    {
+        int left=1;
+        int right=arr.size()-2;
+        while(left<right)
+        {
+            int mid=(left+right)/2;
+            if(arr[mid]>arr[mid+1])
+            {
+                //go left
+                right=mid;
+            }
+            else
+            {
+                left=mid+1;
+            }
+        }
+        return left;
+    }
+};
